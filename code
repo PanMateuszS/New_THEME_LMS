@@ -1,0 +1,85 @@
+function zmienKolorNaStronie() {
+  // Pobieramy wszystkie elementy na stronie
+  const wszystkieElementy = document.querySelectorAll('*');
+  
+  // Definiujemy kolory docelowe
+  const kolor1 = 'rgb(182, 166, 136)';  // Kolor #b6a688 w formacie rgb
+  const kolor2 = 'rgb(235, 228, 214)';  // Kolor #ebe4d6 w formacie rgb
+  const kolor3 = 'rgb(206, 189, 155)';  // Kolor rgb(206, 189, 155) w formacie rgb
+  const kolor4 = 'rgb(223, 213, 189)';  // Kolor #dfd5bd w formacie rgb (dodany kolor)
+  const kolorNowy1 = '#c2c2c2';  // Nowy kolor dla #b6a688 - #343d48
+  const kolorNowy2 = 'rgb(255, 255, 255)';  // Nowy kolor dla #ebe4d6 - #ffffff
+  const kolorNowy3 = '#6899ce';  // Nowy kolor dla rgb(206, 189, 155) - #9bc0e9
+  const kolorNowy4 = '#dfeaf8';  // Nowy kolor dla #dfd5bd - #dfeaf8
+  
+  // Przechodzimy przez wszystkie elementy
+  wszystkieElementy.forEach(element => {
+    const style = window.getComputedStyle(element);
+
+    // Sprawdzamy kolor tła i tekstu
+    const tlo = style.backgroundColor;
+    const tekst = style.color;
+    const border = style.borderColor;
+
+    // Zmieniamy kolor tła i tekstu dla #b6a688 (na #343d48, a tekst na biały)
+    if (tlo === kolor1) {
+      element.style.backgroundColor = kolorNowy1;
+      //element.style.color = kolorNowy2;  // Zmieniamy kolor tekstu na biały
+    }
+    
+    // Zmieniamy kolor tła na biały dla #ebe4d6
+    if (tlo === kolor2) {
+      element.style.backgroundColor = kolorNowy2;
+    }
+
+    // Zmieniamy kolor tekstu na biały dla #ebe4d6
+    if (tekst === kolor2) {
+      element.style.color = kolorNowy2;
+    }
+
+    // Zmieniamy kolor obramowania, jeśli to #b6a688
+    if (border === kolor1) {
+      element.style.borderColor = kolorNowy1;
+    }
+
+    // Zmieniamy kolor obramowania na biały dla #ebe4d6
+    if (border === kolor2) {
+      element.style.borderColor = kolorNowy2;
+    }
+
+    // Zmieniamy kolor tła (background) dla rgb(206, 189, 155) na #9bc0e9
+    if (tlo === kolor3) {
+      element.style.backgroundColor = kolorNowy3;
+    }
+
+    // Zmieniamy kolor tekstu dla rgb(206, 189, 155) na #9bc0e9
+    if (tekst === kolor3) {
+      element.style.color = kolorNowy3;
+    }
+
+    // Zmieniamy kolor obramowania dla rgb(206, 189, 155) na #9bc0e9
+    if (border === kolor3) {
+      element.style.borderColor = kolorNowy3;
+    }
+
+    // Zmieniamy kolor tła (background) dla rgb(223, 213, 189) na #dfeaf8
+    if (tlo === kolor4) {
+      element.style.backgroundColor = kolorNowy4;
+    }
+
+    // Zmieniamy kolor tekstu dla rgb(223, 213, 189) na #dfeaf8
+    if (tekst === kolor4) {
+      element.style.color = kolorNowy4;
+    }
+
+    // Zmieniamy kolor obramowania dla rgb(223, 213, 189) na #dfeaf8
+    if (border === kolor4) {
+      element.style.borderColor = kolorNowy4;
+    }
+  });
+}
+
+// Uruchamiamy funkcję po załadowaniu strony
+zmienKolorNaStronie();
+
+    
